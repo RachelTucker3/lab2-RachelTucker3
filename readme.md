@@ -48,30 +48,44 @@ For the exercises below, you will code your C programs in the files **ex1.c**, *
 Exercise 1
 ----------
 
-Write a program that does the following: It prompts the user with **"Please enter a number from 1 to 5:\\n"** (note the newline after the colon), reads the user's response, and then prints **"1 Hello World"** (with a newline at the end), **"2 Hello World", "3 Hello World"**, etc. as many times as indicated by the user's response, and terminates. If the user enters a number that is outside of the 1..5 range, the program should print the error message **"Number is not in the range from 1 to 5"** (with a newline at the end), and terminate.
+Write a program that does the following: It prompts the user with **"Enter a number from 1 to 20:\n"** (note the newline after the colon), and reads the user's response. If the user's response was, say, 10, the program then prints a short message followed by the first 10 *ordinal numbers* (see [this](https://www.mathsisfun.com/numbers/cardinal-ordinal-chart.html) article), one per line, and then terminates. If the user enters a number that is outside of the 1..20 range, the program should print the error message **"Number is not in the range from 1 to 20\n"** (note the newline at the end), and terminate.
 
-The file with your C program should be called **ex1.c**, and the compiled version called **ex1**. Compile the C program using the C compiler (cc or gcc), and test it with a few different inputs. You can find sample test input and output files as described above. Below is one execution scenario (program output is blue and input is red):
+The file with your C program should be called **ex1.c**, and the compiled version called **ex1**. Compile the C program using the C compiler (cc or gcc), and test it with a few different inputs. You can find sample test input and output files as described above. Below is one execution scenario:
+<pre>
+<b>Enter a number from 1 to 20:</b>
+7
+<b>Here are the first 7 ordinal numbers:
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th</b>
+</pre>
+Here's another scenario:
+<pre>
+<b>Enter a number from 1 to 20:</b>
+22
+<b>Number is not in the range from 1 to 20</b>
+</pre>
 
-**Please enter a number from 1 to 5:**\
-`3`\
-**1 Hello World**\
-**2 Hello World**\
-**3 Hello World**
+Assume that the ordinal numbers from 4 to 20 are all spelled with a th, i.e., 4th, 5th, ... 20th.
 * * *
 
 Exercise 2
 ----------
 
-Write a program that requests five single-precision floating-point numbers **(floats)**, and prints their sum, minimum, maximum, and product to 4 decimal places. Specifically, the program should prompt the user with this message **"Enter five floating-point numbers:\\n"** (note the newline after the colon). It should print the sum, minimum, maximum and product formatted _exactly as shown (to 4 decimals)_:
-
-**Enter five floating-point numbers:**\
-`1.45 -2e2 -2e-2 14 -10.0`\
-**Sum is -194.5700**\
-**Min is -200.0000**\
-**Max is 14.0000**\
-**Product is -812.0000**
-
-_Tip:_ There is no need to use arrays for this exercise. You can calculate/update all four of the output values each time a new number is read from the input.
+Write a program that requests 10 double-precision floating-point numbers (data type **double**), and prints their sum, minimum, maximum, and product to 5 decimal places. Specifically, the program should prompt the user with this message "**Enter 10 floating-point numbers:\n**" (note the newline after the colon). It should print the sum, minimum, maximum and product formatted _exactly as shown (to 5 digits after the decimal point)_:
+<pre>
+<b>Enter 10 floating-point numbers:</b>
+1.45 -2e2 -2e-2 14 -10.0 0.01 -0.02 20 -3e1 +4e+0
+<b>Sum is -200.58000
+Min is -200.00000
+Max is 20.00000
+Product is -389.76000</b>
+</pre>
+_Tip:_ There is no need to use arrays for this exercise. You can calculate/update all four of the output values each time a new number is read from the input. In particular, the first value read becomes the initial sum, min, max and product. Then, every subsequent value read simply updates these four quantities. To print to 5 decimal places, carefully select the format string for **printf()**, specifically, the _specifier_, _width_ and _precision_, after studying the tables given at http://www.cplusplus.com/reference/cstdio/printf/.
 
 Name the file with the C program **ex2.c**. Compile it, save the executable as **ex2**, and test it on the sample input and output files provided.
 
@@ -92,18 +106,20 @@ For example, if the numbers input are 1, 010, 0x20, 25, 1000, -200, then the out
       1000        -200</b>
 </pre>
 
-Name the file with the C program ex3.c. Compile it to ex3 and test it on the sample input and output files provided.
+Note: All numbers that start with a '0' are assumed to be _octal_, i.e., number in base 8 ([Wikipedia article](https://en.wikipedia.org/wiki/Octal)). Thus, "010" in _octal_ is the number 0 + 8*1 = 8 in decimal. Similarly, numbers that start with "0x" are assumed to be _hexadecimal_, i.e., number in base 16 ([Wikipedia article](https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system)). Thus, "0x20" in hexadecimal is the number 0 + 2*16 = 32 in decimal.
 
-_Tip 1:_ Carefully study the format specifiers (%i, %d, %u, %o, %x) for scanf() from the reference provided above ([http://www.cplusplus.com/reference/cstdio/scanf/](http://www.cplusplus.com/reference/cstdio/scanf/)).
+Name the file with the C program **ex3.c**. Compile it to **ex3** and test it on the sample input and output files provided.
 
-_Tip 2:_ Carefully study the width specifier for printf() from the reference provided above ([http://www.cplusplus.com/reference/cstdio/printf/](http://www.cplusplus.com/reference/cstdio/printf/)). There is an example on that page showing how to print a number into a field of 10 characters, preceded by blanks.
+_Tip 1:_ Carefully study the format specifiers (**%i, %d, %u, %o, %x**) for **scanf()** from the reference provided above ([http://www.cplusplus.com/reference/cstdio/scanf/](http://www.cplusplus.com/reference/cstdio/scanf/)).
+
+_Tip 2:_ Carefully study the width specifier for **printf**() from the reference provided above ([http://www.cplusplus.com/reference/cstdio/printf/](http://www.cplusplus.com/reference/cstdio/printf/)). There is an example on that page showing how to print a number into a field of 10 characters, preceded by blanks.
 
 * * *
 
 Exercise 4
 ----------
 
-Now redo Exercise 3 so that all integers in the input are strictly interpreted as decimal numbers, even if they start with a leading '0'. (The input will not contain any hex numbers starting with '0x'.) _Tip:_ Carefully choose the format specifier (**%i, %d, %u, %o, %x**) for **scanf()**.
+Now redo Exercise 3 so that all integers in the input are strictly interpreted as decimal numbers, even if they start with a leading '0', i.e., the number "010" is the decimal number 10, not the octal form of 8. (The input will not contain any hex numbers starting with '0x'.) _Tip:_ Carefully choose the format specifier (**%i, %d, %u, %o, %x**) for **scanf()**.
 
 For example, if the numbers input are 1, 010, 00020, 25, 1000, -200, then the output should be exactly as follows:
 <pre>
@@ -121,71 +137,35 @@ Name the file with the C program **ex4.c**. Compile it to **ex4** and test it on
 Exercise 5
 ----------
 
-Write a program that repeatedly reads an integer in **decimal** format, and determines if it is prime or non-prime. Specifically, the program should do the following:
+Write a program that repeatedly reads an integer in decimal format, and determines if it is a _triangular number_ ([Wikipedia article](https://en.wikipedia.org/wiki/Triangular_number)) or not. Specifically, the program should do the following:
 
-*   Prompts the user to enter a number with **"Number ?\\n"** (note space before and newline after the "?")
-*   Assume the user will only enter a number small enough to be in the range of a normal **int**, or enter 0 to stop the program. The number entered will always be in decimal format, so '010' should be interpreted as ten not eight. _Tip:_ Check the format specifier for **scanf()**.
-*   If the number entered is a prime number, the program prints "_num_ is a prime", else prints "_num_ is non-prime, divisible by xx", where "xx" is the smallest divisor of that number. In either case, the output should be terminated by a newline. The number 1 is a special case, and is considered non-prime.
+*   Prompt the user to enter a number with **"Number ?\\n"** (note space before and newline after the "?")
+*   Assume the user will only enter a number small enough to be in the range of a normal **int**, or enter 0 to stop the program. The number entered will always be in decimal format, so "010" should be interpreted as ten not eight. _Tip:_ Check the format specifier for **scanf()**.
+*   If the number entered is a triangular number, the program prints "_num_ is a triangular number", else prints "_num_ is not triangular, nearest triangular number below _num_is _xx_", where "_xx_" is the greatest triangular number just below "_num_". In either case, the output should be end with a newline.
 *   The program repeats, prompting for the next input, until the user enters a 0, in which case the program prints "Done", followed by a newline, and terminates.
-
-Note that the C language provides **/** and **%** operators for integer divide and modulus operations.
 
 For example, the following is one execution scenario:
 <pre>
 <b>Number ?</b>
-5
-<b>5 is a prime</b>
-<b>Number ?</b>
-1
-<b>1 is non-prime (special case)</b>
-<b>Number ?</b>
-2
-<b>2 is a prime</b>
-<b>Number ?</b>
-027
-<b>27 is non-prime, divisible by 3</b>
-<b>Number ?</b>
+6
+<b>6 is a triangular number
+Number ?</b>
+28
+<b>28 is a triangular number
+Number ?</b>
+60
+<b>60 is not triangular, nearest triangular number below 60 is 55
+Number ?</b>
+500
+<b>500 is not triangular, nearest triangular number below 500 is 496
+Number ?</b>
+036
+<b>36 is a triangular number
+Number ?</b>
 0
 <b>Done</b>
 </pre>
 First test your program by running it through the execution scenario above, and make sure it produces exactly the same output. Name the file with the C program **ex5.c**. Compile it to **ex5** and test it on the sample input and output files provided.
-
-* * *
-
-Exercise 6
-----------
-
-Write a program that repeatedly reads a positive integer in decimal format, and determines if it is a **power of two** or not. In other words, is there an integer _n_ such that 2*n* equals the integer? If so, the program should print the value of _n_. If not, it should print the two values of _n_ that are just above and below the input value.
-
-Specifically, the program should do the following:
-
-*   Prompts the user to enter a number with **"Number ?\\n"**
-*   Assume the user will only enter a positive number small enough to fit within an int, or enter 0 to stop the program. The number entered will always be in decimal format, so '010' should be interpreted as ten not eight. You need not handle negative input values.
-*   If the number entered is a power of two, the program prints a message in the format "_num_ is a power of two (%d)", else prints "_num_ is not a power of two, between %d and %d". In either case, the output should be terminated by a newline.
-*   The program repeats, prompting for the next input, until the user enters a 0, in which case the program prints "Done", followed by a newline, and terminates.
-
-For example, the following is one execution scenario:
-<pre>
-<b>Number ?</b>
-1
-<b>1 is a power of two (0)</b>
-<b>Number ?</b>
-2
-<b>2 is a power of two (1)</b>
-<b>Number ?</b>
-3
-<b>3 is not a power of two, between 1 and 2</b>
-<b>Number ?</b>
-20
-<b>20 is not a power of two, between 4 and 5</b>
-<b>Number ?</b>
-32
-<b>32 is a power of two (5)</b>
-<b>Number ?</b>
-0
-<b>Done</b>
-</pre>
-First test your program by running it through the execution scenario above, and make sure it produces exactly the same output. Name the file with the C program **ex6.c**. Compile it to **ex6** and test it on the sample input and output file provided (**ex6in1**).
 
 * * *
 
