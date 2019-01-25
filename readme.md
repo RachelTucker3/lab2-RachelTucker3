@@ -50,7 +50,7 @@ Exercise 1
 
 Write a program that does the following: It prompts the user with **"Please enter a number from 1 to 5:\\n"** (note the newline after the colon), reads the user's response, and then prints **"1 Hello World"** (with a newline at the end), **"2 Hello World", "3 Hello World"**, etc. as many times as indicated by the user's response, and terminates. If the user enters a number that is outside of the 1..5 range, the program should print the error message **"Number is not in the range from 1 to 5"** (with a newline at the end), and terminate.
 
-The file with your C program should be called **ex1.c**, and the compiled version called **ex1**. Compile the C program using the C compiler (cc or gcc), and test it with a few different inputs. You can find sample test input and output files as described above. Below is one execution scenario (program output is blue and input is red):
+The file with your C program should be called **ex1.c**, and the compiled version called **ex1**. Compile the C program using the C compiler (cc or gcc), and test it with a few different inputs. You can find sample test input and output files as described above. Below is one execution scenario:
 
 **Please enter a number from 1 to 5:**\
 `3`\
