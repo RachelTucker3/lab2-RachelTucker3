@@ -7,7 +7,7 @@
 
 		while(x != 0) {
 
-			printf("Number ? \n");
+			printf("Number ?\n");
 			scanf("%d", &x);
 			if(x == 0) {
 			printf("Done\n");
